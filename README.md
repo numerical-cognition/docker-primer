@@ -4,7 +4,7 @@ Primer for getting started with Docker. Primer is written primarily for linux/ma
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
 
-To contribute, click [here](./CONTRIBUTING.md).
+To contribute, click [here](CONTRIBUTING.md).
 
 ## Features
  - Docker basics
@@ -113,7 +113,7 @@ That's it, you now have a running Docker container.
 
 Official instructions to install Docker Desktop for Windows can be found [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
 
-> If you're using windows, please check out a more detailed explanation I've written for you [here](./docs/examples/windows.md).
+> If you're using windows, please check out a more detailed explanation I've written for you [here](docs/examples/windows.md).
 
 Once installed, open powershell as administrator and run:
 
