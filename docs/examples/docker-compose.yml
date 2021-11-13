@@ -1,0 +1,47 @@
+# version of docker-compose to use for start-up
+version: "3"
+
+# list of all containers and their configuration
+services:
+  # container name: react-app
+  react-app:
+    # build the container image from the following configuration
+    # ... e.g. build from Dockerfile.dev located in ./ directory
+    build:
+      # define location of Dockerfile
+      context: .
+      # provide a (new) name for the docker image build 
+      dockerfile: Dockerfile.dev
+    # map ports (3000 local machine to 3000 inside the container)
+    ports:
+      - "3000:3000"
+    # define docker volumes for this container
+    volumes:
+      # map ./app/node_modules to that folder inside the container
+      # ... it leaves the folder alone and it doesn't overwrite it
+      - /app/node_modules
+      # map everything in the local folder (.) to (:)
+      # ... /app folder inside the container
+      - .:/app
+    # define restart policy for this container
+    restart: "on-failure"
+  # container name: react-app-tests
+  react-app-tests:
+    # build the container image from the following configuration
+    # ... e.g. build from Dockerfile.dev located in ./ directory
+    build:
+      # define location of Dockerfile
+      context: .
+      # provide a (new) name for the docker image build config.
+      dockerfile: Dockerfile.dev
+    volumes:
+      # map ./app/node_modules to that folder inside the container
+      # ... it leaves the folder alone and it doesn't overwrite it
+      - /app/node_modules
+      # map everything in the local folder (.) to (:) /app folder
+      # ... /app folder located inside the container
+      - .:/app
+    # overwrite the default command (used when starting the container)
+    command: ["npm", "run", "test"]
+    # define restart policy for this container
+    restart: "no"
